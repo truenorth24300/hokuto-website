@@ -1,0 +1,489 @@
+/* ============================================================
+   文芸同人誌「北斗」 デザイン案 B「黒と金」
+   コンセプト：深い黒地 × 金のアクセント × 白テキスト
+              高級文芸誌・受賞歴ある格式を前面に出した荘厳スタイル
+              ヘッダーを大きく取り、表紙を主役に据えた構成
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "Noto Serif JP", "游明朝", "YuMincho", serif;
+  font-size: 18px;
+  line-height: 2.0;
+  color: #e8e0d0;
+  background: #111010;
+}
+a { color: #c9a84c; text-decoration: none; }
+a:hover { text-decoration: underline; color: #e8c87a; }
+
+/* ===== ヘッダー：黒地に金文字で荘厳に ===== */
+header {
+  background: #0d0c0c;
+  border-bottom: 1px solid #3a3020;
+  position: relative;
+  overflow: hidden;
+}
+/* 金の横線装飾 */
+header::after {
+  content: "";
+  display: block;
+  height: 3px;
+  background: linear-gradient(90deg, transparent 0%, #c9a84c 20%, #e8c87a 50%, #c9a84c 80%, transparent 100%);
+}
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 28px 22px;
+}
+.site-title {
+  font-size: 4rem;
+  letter-spacing: 0.8em;
+  font-weight: 700;
+  /* 金色グラデーション文字 */
+  background: linear-gradient(180deg, #e8c87a 0%, #c9a84c 50%, #a07830 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+.site-subtitle {
+  font-size: 0.80rem;
+  letter-spacing: 0.22em;
+  color: #8a7a5a;
+  margin-top: 14px;
+  font-weight: 300;
+}
+.header-badge {
+  text-align: right;
+  font-size: 0.78rem;
+  color: #8a7a5a;
+  line-height: 2.0;
+  border-left: 1px solid #3a3020;
+  padding-left: 22px;
+}
+
+/* ===== ナビゲーション ===== */
+nav {
+  background: #1a1810;
+  border-top: 1px solid #3a3020;
+  border-bottom: 1px solid #3a3020;
+}
+nav ul {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  list-style: none;
+  padding: 0 28px;
+  flex-wrap: wrap;
+}
+nav ul li a {
+  display: block;
+  color: #c0b090;
+  padding: 14px 26px;
+  font-size: 0.96rem;
+  letter-spacing: 0.18em;
+  transition: color 0.2s, border-bottom 0.2s;
+  font-weight: 300;
+  border-bottom: 2px solid transparent;
+}
+nav ul li a:hover,
+nav ul li a.active {
+  color: #e8c87a;
+  border-bottom-color: #c9a84c;
+  text-decoration: none;
+}
+
+/* ===== ページタイトル ===== */
+.page-title {
+  font-size: 1.6rem;
+  color: #e8e0d0;
+  border-bottom: 1px solid #3a3020;
+  padding-bottom: 12px;
+  margin-bottom: 30px;
+  letter-spacing: 0.2em;
+}
+.page-title::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(90deg, #c9a84c, transparent);
+  margin-top: 4px;
+}
+
+/* ===== 2カラムレイアウト ===== */
+.page-wrapper {
+  max-width: 1100px;
+  margin: 36px auto 52px;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 36px;
+}
+
+/* ===== 1カラムレイアウト ===== */
+.page-content {
+  max-width: 1100px;
+  margin: 36px auto 52px;
+  padding: 0 20px;
+}
+
+/* ===== カード共通 ===== */
+.card {
+  background: #1a1810;
+  border: 1px solid #3a3020;
+  border-radius: 0;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+/* ===== 最新号エリア ===== */
+.latest-issue { overflow: hidden; margin-bottom: 28px; }
+.latest-issue-header {
+  background: #111010;
+  color: #c9a84c;
+  padding: 13px 24px;
+  font-size: 0.9rem;
+  letter-spacing: 0.22em;
+  border-bottom: 1px solid #3a3020;
+  border-left: 4px solid #c9a84c;
+}
+.latest-issue-body {
+  display: flex;
+  gap: 36px;
+  padding: 30px;
+  align-items: flex-start;
+}
+
+/* 表紙 */
+.cover-area { flex-shrink: 0; width: 240px; text-align: center; }
+.cover-img {
+  width: 240px;
+  height: 340px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 0;
+  /* 金の枠線で額装風に */
+  box-shadow:
+    0 0 0 2px #c9a84c,
+    0 0 0 5px #1a1810,
+    6px 6px 20px rgba(0,0,0,0.6);
+  display: block;
+}
+.cover-caption { font-size: 0.78rem; color: #8a7a5a; margin-top: 12px; }
+
+/* 目次 */
+.toc-area { flex: 1; }
+.toc-area h2 {
+  font-size: 1.4rem;
+  color: #e8e0d0;
+  border-bottom: 1px solid #3a3020;
+  padding-bottom: 10px;
+  margin-bottom: 18px;
+  letter-spacing: 0.25em;
+}
+.toc-meta { font-size: 0.85rem; color: #8a7a5a; margin-bottom: 18px; letter-spacing: 0.1em; }
+.toc-genre { margin-bottom: 16px; }
+.toc-genre-label {
+  display: inline-block;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  color: #c9a84c;
+  border: 1px solid #c9a84c;
+  padding: 2px 12px;
+  margin-bottom: 7px;
+  background: transparent;
+}
+.toc-genre-label.essay  { color: #8ab878; border-color: #8ab878; }
+.toc-genre-label.poem   { color: #a898d8; border-color: #a898d8; }
+.toc-genre-label.critic { color: #c8a870; border-color: #c8a870; }
+.toc-genre-label.misc   { color: #78b8c8; border-color: #78b8c8; }
+.toc-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+.toc-table tr { border-bottom: 1px dotted #3a3020; }
+.toc-table tr:last-child { border-bottom: none; }
+.toc-table td { padding: 7px 6px; vertical-align: top; }
+.toc-table .work-title  { font-weight: bold; color: #e8e0d0; width: 55%; }
+.toc-table .work-author { color: #a09070; width: 35%; }
+.toc-table .work-page   { color: #5a5040; font-size: 0.82rem; width: 10%; text-align: right; }
+.toc-cut { margin-top: 14px; font-size: 0.82rem; color: #5a5040; }
+
+/* 目次スキャン画像 */
+.toc-scan-area { margin-top: 20px; }
+.toc-scan-area img {
+  max-width: 100%;
+  border: 1px solid #3a3020;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+}
+
+/* ===== お知らせ ===== */
+.notice-section { padding: 22px 26px; margin-bottom: 28px; }
+.notice-section h3 {
+  font-size: 1.05rem;
+  color: #e8e0d0;
+  border-left: 4px solid #c9a84c;
+  padding-left: 12px;
+  margin-bottom: 16px;
+  letter-spacing: 0.15em;
+}
+.notice-list { list-style: none; }
+.notice-list li {
+  display: flex;
+  gap: 14px;
+  padding: 8px 0;
+  border-bottom: 1px dotted #3a3020;
+  font-size: 0.92rem;
+  align-items: baseline;
+}
+.notice-list li:last-child { border-bottom: none; }
+.notice-date { color: #c9a84c; flex-shrink: 0; font-size: 0.82rem; min-width: 90px; }
+.notice-new {
+  background: #c9a84c;
+  color: #0d0c0c;
+  font-size: 0.68rem;
+  padding: 1px 6px;
+  margin-right: 5px;
+  font-weight: bold;
+}
+
+/* ===== サイドバー ===== */
+.sidebar-block { margin-bottom: 22px; overflow: hidden; }
+.sidebar-block-header {
+  background: #111010;
+  color: #c9a84c;
+  padding: 10px 16px;
+  font-size: 0.88rem;
+  letter-spacing: 0.2em;
+  border-left: 3px solid #c9a84c;
+  border-bottom: 1px solid #3a3020;
+}
+.sidebar-block-body { padding: 14px 16px; }
+
+.bn-side-list { list-style: none; }
+.bn-side-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px dotted #3a3020;
+  font-size: 0.88rem;
+}
+.bn-side-list li:last-child { border-bottom: none; }
+.bn-thumb {
+  width: 40px; height: 57px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border: 1px solid #c9a84c;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+}
+.bn-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.bn-thumb-placeholder {
+  width: 40px; height: 57px;
+  background: #1a1810;
+  border: 1px solid #3a3020;
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  color: #c9a84c; font-size: 0.5rem; letter-spacing: 0.05em;
+}
+.bn-info { flex: 1; }
+.bn-num { font-weight: bold; color: #e8e0d0; }
+.bn-date { font-size: 0.75rem; color: #6a6050; }
+.sidebar-more { text-align: right; margin-top: 10px; }
+.sidebar-more a { font-size: 0.85rem; color: #c9a84c; }
+
+.blog-side-list { list-style: none; }
+.blog-side-list li {
+  padding: 9px 0;
+  border-bottom: 1px dotted #3a3020;
+  font-size: 0.88rem;
+}
+.blog-side-list li:last-child { border-bottom: none; }
+.blog-side-date { font-size: 0.75rem; color: #6a6050; display: block; margin-bottom: 2px; }
+
+.about-text { font-size: 0.88rem; line-height: 2.0; color: #a09070; }
+.about-text strong { color: #c9a84c; }
+
+/* ===== バックナンバーページ ===== */
+.year-section { margin-bottom: 40px; }
+.year-label {
+  background: #111010; color: #c9a84c;
+  padding: 7px 20px; font-size: 0.95rem; letter-spacing: 0.2em;
+  display: inline-block; margin-bottom: 16px;
+  border: 1px solid #c9a84c;
+}
+.bn-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 18px;
+}
+.bn-card { overflow: hidden; transition: box-shadow 0.2s; }
+.bn-card:hover { box-shadow: 0 0 20px rgba(201,168,76,0.25); }
+.bn-card-cover { width: 100%; height: 150px; overflow: hidden; background: #0d0c0c; }
+.bn-card-cover img { width: 100%; height: 150px; object-fit: cover; object-position: top; }
+.bn-card-cover-placeholder {
+  width: 100%; height: 150px;
+  background: linear-gradient(160deg, #0d0c0c 0%, #1a1810 100%);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  color: #c9a84c;
+  border-bottom: 1px solid #3a3020;
+}
+.bn-card-cover-title { font-size: 1.4rem; font-weight: 700; letter-spacing: 0.4em; }
+.bn-card-cover-num { font-size: 0.72rem; color: #6a6050; margin-top: 5px; }
+.bn-card-body { padding: 12px 14px; }
+.bn-card-no { font-weight: bold; color: #e8e0d0; font-size: 0.96rem; }
+.bn-card-date { font-size: 0.78rem; color: #6a6050; margin-bottom: 8px; }
+.bn-toc-toggle { font-size: 0.82rem; color: #c9a84c; cursor: pointer; }
+.bn-toc-content { margin-top: 8px; font-size: 0.8rem; line-height: 2; color: #a09070; }
+
+.btn-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  padding: 7px 14px;
+  background: transparent;
+  color: #c9a84c;
+  font-size: 0.82rem;
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  transition: background 0.2s, color 0.2s;
+  border: 1px solid #c9a84c;
+  cursor: pointer;
+}
+.btn-download:hover { background: #c9a84c; color: #0d0c0c; text-decoration: none; }
+.btn-download::before { content: "↓"; font-size: 0.9em; }
+.btn-download.disabled { border-color: #3a3020; color: #3a3020; cursor: default; pointer-events: none; }
+
+/* ===== ブログページ ===== */
+.blog-post { padding: 26px 30px; margin-bottom: 24px; }
+.blog-post-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.blog-post-date { font-size: 0.85rem; color: #6a6050; }
+.blog-post-tag {
+  font-size: 0.72rem; background: transparent; color: #c9a84c;
+  padding: 2px 10px; border: 1px solid #c9a84c;
+}
+.blog-post-tag.event  { color: #e88080; border-color: #e88080; }
+.blog-post-tag.news   { color: #88c888; border-color: #88c888; }
+.blog-post-tag.column { color: #a898d8; border-color: #a898d8; }
+.blog-post-h { font-size: 1.15rem; font-weight: bold; color: #e8e0d0; margin-bottom: 14px; letter-spacing: 0.1em; }
+.blog-post-body { font-size: 0.95rem; line-height: 2.1; color: #c0b090; }
+.blog-post-body p { margin-bottom: 12px; }
+.blog-post-body p:last-child { margin-bottom: 0; }
+.blog-post-body img {
+  max-width: 100%; height: auto;
+  margin: 16px 0;
+  border: 1px solid #c9a84c;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+  display: block;
+}
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px; margin: 16px 0;
+}
+.photo-grid img {
+  width: 100%; height: 160px; object-fit: cover;
+  border: 1px solid #3a3020;
+  margin: 0;
+}
+.photo-caption { text-align: center; font-size: 0.78rem; color: #6a6050; margin-top: -8px; margin-bottom: 12px; }
+
+.arch-list { list-style: none; }
+.arch-list li { padding: 8px 0; border-bottom: 1px dotted #3a3020; font-size: 0.88rem; }
+.arch-list li:last-child { border-bottom: none; }
+
+/* ===== 北斗についてページ ===== */
+.about-card { padding: 30px 34px; margin-bottom: 26px; }
+.about-card h2 {
+  font-size: 1.1rem; color: #c9a84c;
+  border-left: 4px solid #c9a84c; padding-left: 12px;
+  margin-bottom: 18px; letter-spacing: 0.12em;
+}
+.about-card p { font-size: 0.96rem; line-height: 2.1; color: #c0b090; margin-bottom: 14px; }
+.about-card p:last-child { margin-bottom: 0; }
+.history-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin-top: 8px; }
+.history-table tr { border-bottom: 1px dotted #3a3020; }
+.history-table td { padding: 9px 6px; vertical-align: top; }
+.history-table td:first-child { color: #c9a84c; white-space: nowrap; width: 150px; }
+.info-dl { font-size: 0.95rem; }
+.info-dl dt { font-weight: bold; color: #e8e0d0; margin-top: 14px; }
+.info-dl dd { color: #a09070; margin-left: 1em; }
+
+/* ===== お問い合わせページ ===== */
+.contact-form { padding: 30px 34px; }
+.contact-form h2 {
+  font-size: 1.1rem; color: #c9a84c;
+  border-left: 4px solid #c9a84c; padding-left: 12px;
+  margin-bottom: 20px; letter-spacing: 0.1em;
+}
+.form-row { margin-bottom: 20px; }
+.form-row label { display: block; font-size: 0.95rem; font-weight: bold; color: #e8e0d0; margin-bottom: 6px; }
+.form-row input[type="text"],
+.form-row input[type="email"],
+.form-row textarea {
+  width: 100%; padding: 10px 14px;
+  font-size: 1rem; font-family: inherit;
+  border: 1px solid #3a3020;
+  background: #111010; color: #e8e0d0;
+  transition: border-color 0.2s;
+}
+.form-row input:focus,
+.form-row textarea:focus { outline: none; border-color: #c9a84c; }
+.form-row textarea { height: 160px; resize: vertical; }
+.form-submit {
+  background: transparent; color: #c9a84c;
+  border: 1px solid #c9a84c; padding: 12px 40px;
+  font-size: 1rem; font-family: inherit;
+  cursor: pointer; letter-spacing: 0.15em;
+  transition: background 0.2s, color 0.2s;
+}
+.form-submit:hover { background: #c9a84c; color: #0d0c0c; }
+.contact-info { padding: 22px 28px; }
+.contact-info p { font-size: 0.92rem; line-height: 2; color: #a09070; }
+
+/* ===== 管理者向けメモ ===== */
+.admin-note {
+  background: #1a1810; border: 1px solid #3a3020;
+  padding: 16px 20px;
+  font-size: 0.85rem; color: #8a7a5a; margin-bottom: 26px; line-height: 2.0;
+}
+.admin-note strong { color: #c9a84c; }
+
+/* ===== フッター ===== */
+footer {
+  background: #0d0c0c;
+  color: #5a5040;
+  text-align: center;
+  padding: 32px 16px;
+  font-size: 0.82rem;
+  line-height: 2.2;
+  border-top: 1px solid #3a3020;
+}
+/* 金の上線 */
+footer::before {
+  content: "";
+  display: block;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, #c9a84c 30%, #e8c87a 50%, #c9a84c 70%, transparent 100%);
+  margin-bottom: 28px;
+}
+footer a { color: #8a7a5a; }
+footer a:hover { color: #c9a84c; }
+.footer-nav { margin-top: 10px; }
+.footer-nav a { margin: 0 8px; }
+
+/* ===== レスポンシブ ===== */
+@media (max-width: 768px) {
+  .page-wrapper { grid-template-columns: 1fr; }
+  .latest-issue-body { flex-direction: column; align-items: center; }
+  .cover-area { width: 100%; max-width: 280px; }
+  .cover-img { width: 100%; max-width: 280px; height: auto; }
+  .toc-area { width: 100%; }
+  nav ul { flex-wrap: wrap; }
+  nav ul li a { padding: 11px 16px; font-size: 0.95rem; }
+  .site-title { font-size: 2.4rem; }
+  .bn-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+}

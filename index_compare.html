@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>デザイン案 比較ページ — 文芸同人誌「北斗」ホームページ</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Noto Sans JP', 'ヒラギノ角ゴ ProN', Meiryo, sans-serif;
+      font-size: 16px;
+      background: #f0f0f0;
+      color: #222;
+    }
+    .page-header {
+      background: #1a1a2e;
+      color: white;
+      padding: 32px 40px;
+      text-align: center;
+    }
+    .page-header h1 {
+      font-size: 1.6rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+    .page-header p {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,.6);
+    }
+
+    /* ===== 縦並びレイアウト ===== */
+    .compare-list {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+    .pattern-block {
+      background: white;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,.10);
+    }
+
+    /* ラベル帯 */
+    .pattern-label {
+      padding: 18px 28px;
+      font-weight: bold;
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .label-a { background: #8b2020; color: white; }
+    .label-c { background: #1a3a6a; color: white; }
+    .label-d { background: #1A3560; color: white; border-bottom: 3px solid #B5361C; }
+
+    .badge {
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 2px;
+      font-weight: normal;
+      background: rgba(255,255,255,.22);
+      color: white;
+    }
+
+    /* 説明 + スペック */
+    .pattern-info {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid #e8e8e8;
+    }
+    .pattern-desc {
+      flex: 1;
+      padding: 18px 28px;
+      font-size: 0.9rem;
+      color: #444;
+      line-height: 1.8;
+      border-right: 1px solid #e8e8e8;
+    }
+    .spec-table {
+      width: 260px;
+      flex-shrink: 0;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+    }
+    .spec-table td {
+      padding: 9px 16px;
+      border-bottom: 1px solid #efefef;
+      vertical-align: top;
+    }
+    .spec-table td:first-child {
+      color: #999;
+      white-space: nowrap;
+      width: 80px;
+    }
+
+    /* iframeプレビュー */
+    .iframe-wrap {
+      position: relative;
+      width: 100%;
+      height: 560px;
+      overflow: hidden;
+      background: #fafafa;
+      border-top: 1px solid #e8e8e8;
+    }
+    .iframe-wrap iframe {
+      width: 1200px;
+      height: 900px;
+      border: none;
+      transform-origin: top left;
+      transform: scale(0.75);
+      pointer-events: none;
+    }
+
+    /* 全画面ボタン */
+    .open-btn {
+      display: block;
+      text-align: center;
+      padding: 16px;
+      font-size: 0.95rem;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      transition: opacity .2s;
+      color: white;
+    }
+    .open-btn:hover { opacity: 0.85; }
+    .open-btn-a { background: #8b2020; }
+    .open-btn-c { background: #1a3a6a; }
+    .open-btn-d { background: #B5361C; }
+
+    .footer-note {
+      text-align: center;
+      padding: 28px;
+      font-size: 0.82rem;
+      background: #1a1a2e;
+      color: rgba(255,255,255,.4);
+      margin-top: 16px;
+    }
+
+    @media (max-width: 700px) {
+      .pattern-info { flex-direction: column; }
+      .spec-table { width: 100%; border-top: 1px solid #e8e8e8; }
+      .pattern-desc { border-right: none; }
+      .iframe-wrap { height: 400px; }
+      .iframe-wrap iframe { width: 900px; transform: scale(0.56); }
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="page-header">
+  <h1>文芸同人誌「北斗」ホームページ — デザイン案 比較</h1>
+  <p>3つのデザイン案をご覧いただき、ご希望のパターンをお選びください。「全画面で開く」ボタンで実際のページを確認できます。</p>
+</div>
+
+<div class="compare-list">
+
+  <!-- ===== パターンA ===== -->
+  <div class="pattern-block">
+    <div class="pattern-label label-a">
+      パターンA「墨と和紙」
+      <span class="badge">伝統的</span>
+    </div>
+    <div class="pattern-info">
+      <div class="pattern-desc">
+        和紙風の温かみある背景（#f2ead8）に墨色・朱赤を組み合わせた、日本文学誌らしい格調あるスタイルです。
+        1949年創刊の歴史ある誌面の雰囲気に最も近く、読者層の世代感にも合います。
+        明朝体（Noto Serif JP）を使用し、文学誌としての品格を表現しています。
+      </div>
+      <table class="spec-table">
+        <tr><td>背景色</td><td>和紙色（#f2ead8）</td></tr>
+        <tr><td>アクセント</td><td>朱赤（#8b2020）</td></tr>
+        <tr><td>フォント</td><td>Noto Serif JP（明朝系）</td></tr>
+        <tr><td>雰囲気</td><td>伝統的・温かみ・文学誌らしさ</td></tr>
+        <tr><td>視認性</td><td>◎ 高コントラスト</td></tr>
+        <tr><td>格式感</td><td>◎ 和の文学誌</td></tr>
+      </table>
+    </div>
+    <div class="iframe-wrap">
+      <iframe src="index_a.html" title="パターンA プレビュー" loading="lazy"></iframe>
+    </div>
+    <a href="index_a.html" target="_blank" class="open-btn open-btn-a">▶ パターンA を全画面で開く</a>
+  </div>
+
+  <!-- ===== パターンC ===== -->
+  <div class="pattern-block">
+    <div class="pattern-label label-c">
+      パターンC「深藍と白」
+      <span class="badge">清潔感・読みやすさ</span>
+    </div>
+    <div class="pattern-info">
+      <div class="pattern-desc">
+        白背景に深藍のアクセントという、高コントラストで最も読みやすいスタイルです。
+        知的な落ち着きがあり、高齢者の視認性・メンテナンスのしやすさの観点では最も優れています。
+        清潔感のある現代的なデザインで、幅広い読者層に受け入れられやすいパターンです。
+      </div>
+      <table class="spec-table">
+        <tr><td>背景色</td><td>薄グレー（#f0f2f5）</td></tr>
+        <tr><td>アクセント</td><td>深藍（#1a3a6a）</td></tr>
+        <tr><td>フォント</td><td>Noto Serif JP（明朝系）</td></tr>
+        <tr><td>雰囲気</td><td>知的・清潔感・落ち着いた格式</td></tr>
+        <tr><td>視認性</td><td>◎◎ 最も読みやすい</td></tr>
+        <tr><td>格式感</td><td>○ 落ち着いた格式</td></tr>
+      </table>
+    </div>
+    <div class="iframe-wrap">
+      <iframe src="index_c.html" title="パターンC プレビュー" loading="lazy"></iframe>
+    </div>
+    <a href="index_c.html" target="_blank" class="open-btn open-btn-c">▶ パターンC を全画面で開く</a>
+  </div>
+
+  <!-- ===== パターンD ===== -->
+  <div class="pattern-block">
+    <div class="pattern-label label-d">
+      パターンD「紺と象牙」
+      <span class="badge">洗練・格式</span>
+    </div>
+    <div class="pattern-info">
+      <div class="pattern-desc">
+        深紺ヘッダー×象牙色背景×朱赤アクセントの洗練されたスタイルです。
+        格式と現代性を両立しており、名古屋市芸術奨励賞受賞という権威を視覚的に表現します。
+        「another」フォルダのデザインをベースに、表紙書体の題字画像を適用した案です。
+      </div>
+      <table class="spec-table">
+        <tr><td>背景色</td><td>象牙色（#FAF7F2）</td></tr>
+        <tr><td>ヘッダー</td><td>深紺（#1A3560）</td></tr>
+        <tr><td>アクセント</td><td>朱赤（#B5361C）</td></tr>
+        <tr><td>フォント</td><td>Noto Serif JP / Sans JP</td></tr>
+        <tr><td>視認性</td><td>◎ 高コントラスト</td></tr>
+        <tr><td>格式感</td><td>◎◎ 最も格調高い</td></tr>
+      </table>
+    </div>
+    <div class="iframe-wrap">
+      <iframe src="index_d.html" title="パターンD プレビュー" loading="lazy"></iframe>
+    </div>
+    <a href="index_d.html" target="_blank" class="open-btn open-btn-d">▶ パターンD を全画面で開く</a>
+  </div>
+
+</div>
+
+<div class="footer-note">
+  文芸同人誌「北斗」ホームページ デザイン案 — 2025年制作
+</div>
+
+</body>
+</html>

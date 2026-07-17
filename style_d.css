@@ -1,0 +1,561 @@
+/* ================================================================
+   文芸同人誌「北斗」 デザイン案 D「紺と象牙」
+   コンセプト：深紺ヘッダー × 象牙色（アイボリー）背景 × 朱赤アクセント
+              「another」フォルダのデザインをベースに、
+              ・ヘッダー題字を表紙書体画像に置き換え
+              ・表紙画像を大きく表示（240×340px）
+              ・目次スキャン画像の表示エリアを追加
+              ・会合写真掲載・PDFダウンロード対応
+              高齢者にも読みやすい大きめ文字・高コントラスト設計
+   ================================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+
+:root {
+  --navy:       #1A3560;
+  --ivory:      #FAF7F2;
+  --vermilion:  #B5361C;
+  --charcoal:   #2A2A2A;
+  --warm-gray:  #7A6E60;
+  --sidebar-bg: #F2ECE3;
+  --border:     rgba(160, 140, 110, 0.35);
+  --font-serif: 'Noto Serif JP', '游明朝', YuMincho, 'ヒラギノ明朝 ProN', serif;
+  --font-sans:  'Noto Sans JP',  'ヒラギノ角ゴ ProN', Meiryo, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 1.85;
+  color: var(--charcoal);
+  background: var(--ivory);
+  margin: 0; padding: 0;
+}
+a { color: var(--navy); text-decoration: none; }
+a:hover { color: var(--vermilion); text-decoration: underline; }
+img { max-width: 100%; height: auto; }
+
+/* ===== ヘッダー ===== */
+header.site-header {
+  background: var(--navy);
+  color: white;
+}
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px 32px;
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+}
+.site-title {
+  margin: 0;
+  line-height: 1;
+}
+.site-title img.title-img {
+  /* 白文字版の題字画像 */
+  height: 80px;
+  width: auto;
+  display: block;
+  filter: brightness(1.05);
+}
+.site-subtitle-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding-bottom: 4px;
+}
+.site-subtitle {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,.65);
+  margin: 0;
+  letter-spacing: 0.08em;
+}
+.site-founded {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,.42);
+  margin: 0;
+}
+.header-award {
+  margin-left: auto;
+  text-align: right;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,.45);
+  line-height: 2.0;
+  border-left: 1px solid rgba(255,255,255,.18);
+  padding-left: 20px;
+}
+
+/* ===== ナビゲーション ===== */
+nav.site-nav {
+  border-top: 1px solid rgba(255,255,255,.15);
+}
+nav.site-nav ul {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 8px;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+nav.site-nav li a {
+  display: block;
+  padding: 12px 22px;
+  color: rgba(255,255,255,.75);
+  font-size: .92rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  transition: color .15s, background .15s;
+}
+nav.site-nav li a:hover { color: white; background: rgba(255,255,255,.10); text-decoration: none; }
+nav.site-nav li a.active { background: var(--vermilion); color: white; }
+
+/* ===== レイアウト ===== */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 32px;
+}
+.layout-with-sidebar {
+  display: grid;
+  grid-template-columns: 1fr 272px;
+  gap: 48px;
+  align-items: start;
+}
+
+/* ===== セクション見出し ===== */
+.section-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.section-heading::before {
+  content: '';
+  display: block;
+  width: 5px;
+  height: 26px;
+  background: var(--vermilion);
+  flex-shrink: 0;
+}
+.section-heading h2 {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin: 0;
+  color: var(--charcoal);
+}
+.section-meta {
+  color: var(--warm-gray);
+  font-size: 1rem;
+  margin: 0 0 24px;
+  font-family: var(--font-serif);
+}
+
+/* ===== 最新号レイアウト ===== */
+.issue-layout {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+.issue-cover img {
+  width: 200px;
+  display: block;
+  box-shadow: 0 4px 20px rgba(0,0,0,.18);
+  border: 1px solid var(--border);
+}
+.issue-toc { flex: 1; min-width: 0; }
+
+/* ===== 目次テーブル ===== */
+.toc-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .9rem;
+}
+.toc-table th {
+  text-align: left;
+  padding: 8px 12px 8px 0;
+  border-bottom: 2px solid var(--navy);
+  color: var(--warm-gray);
+  font-weight: 500;
+  font-size: .78rem;
+  font-family: var(--font-sans);
+}
+.toc-table td {
+  padding: 9px 12px 9px 0;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+  line-height: 1.5;
+}
+.toc-table tr:nth-child(even) td {
+  background: rgba(242,236,227,.65);
+}
+.toc-genre {
+  color: var(--vermilion);
+  font-size: .8rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.toc-author { color: var(--warm-gray); }
+.toc-pages {
+  color: var(--warm-gray);
+  font-size: .82rem;
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* 目次スキャン画像 */
+.toc-scan {
+  margin-top: 24px;
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+}
+.toc-scan img {
+  max-width: 100%;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+
+/* ===== お知らせ ===== */
+.notice-block {
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+.notice-list {
+  list-style: none;
+  margin: 0; padding: 0;
+}
+.notice-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: .92rem;
+}
+.notice-list li:last-child { border-bottom: none; }
+.notice-date {
+  color: var(--navy);
+  font-size: .82rem;
+  white-space: nowrap;
+  min-width: 90px;
+  flex-shrink: 0;
+}
+.notice-new {
+  background: var(--vermilion);
+  color: white;
+  font-size: .68rem;
+  padding: 1px 6px;
+  flex-shrink: 0;
+}
+
+/* ===== サイドバー ===== */
+aside.sidebar {
+  border-left: 1px solid var(--border);
+  padding-left: 32px;
+}
+.sidebar-section {
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+.sidebar-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.sidebar-title {
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--navy);
+  border-bottom: 1px solid var(--navy);
+  padding-bottom: 4px;
+  margin: 0 0 12px;
+}
+.sidebar-list {
+  list-style: none;
+  margin: 0; padding: 0;
+}
+.sidebar-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  font-size: .9rem;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--border);
+}
+.sidebar-list li:last-child { border-bottom: none; }
+.sidebar-list .meta {
+  color: var(--warm-gray);
+  font-size: .78rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.sidebar-list li a { color: inherit; }
+.sidebar-list li a:hover { color: var(--vermilion); text-decoration: none; }
+.sidebar-more-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: .85rem;
+  color: var(--vermilion);
+}
+.sidebar-more-link:hover { text-decoration: underline; }
+.sidebar-desc {
+  font-size: .875rem;
+  color: var(--warm-gray);
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* ===== バックナンバーページ ===== */
+.page-intro { font-size: .9rem; color: var(--warm-gray); margin: -8px 0 28px; }
+.backnumber-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.backnumber-item { cursor: pointer; }
+.backnumber-item img {
+  width: 100%;
+  aspect-ratio: 5/7;
+  object-fit: cover;
+  display: block;
+  border: 1px solid var(--border);
+  box-shadow: 0 1px 6px rgba(0,0,0,.10);
+  transition: opacity .2s;
+}
+.backnumber-item:hover img { opacity: .80; }
+.bn-number { font-size: .88rem; font-weight: 500; margin-top: 6px; }
+.bn-date { font-size: .78rem; color: var(--warm-gray); }
+.btn-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 8px;
+  padding: 5px 12px;
+  background: var(--navy);
+  color: white;
+  font-size: .78rem;
+  border-radius: 2px;
+  transition: background .15s;
+}
+.btn-download:hover { background: #0f2548; color: white; text-decoration: none; }
+.btn-download::before { content: "↓"; }
+.btn-download.disabled { background: #ccc; color: #888; pointer-events: none; cursor: default; }
+
+/* ===== ブログページ ===== */
+.blog-list { margin-top: 8px; }
+.blog-item {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: background .15s;
+}
+.blog-item:first-child { border-top: 1px solid var(--border); }
+.blog-item:hover {
+  background: var(--sidebar-bg);
+  padding: 20px 16px;
+  margin: 0 -16px;
+}
+.blog-item-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+.blog-title {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--charcoal);
+  margin: 0;
+  line-height: 1.4;
+}
+.blog-item:hover .blog-title { color: var(--vermilion); }
+.blog-meta {
+  display: flex;
+  gap: 16px;
+  font-size: .78rem;
+  color: var(--warm-gray);
+  margin: 4px 0 0;
+}
+.blog-tag {
+  font-size: .72rem;
+  background: var(--navy);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 2px;
+}
+.blog-tag.event { background: var(--vermilion); }
+.blog-tag.column { background: #4a5a7a; }
+.blog-excerpt {
+  font-size: .88rem;
+  color: var(--warm-gray);
+  line-height: 1.65;
+  margin: 8px 0 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.blog-arrow {
+  color: var(--vermilion);
+  font-size: .9rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+/* ブログ記事内写真 */
+.blog-post-photo {
+  max-width: 100%;
+  height: auto;
+  margin: 16px 0;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+  display: block;
+}
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+.photo-grid img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border: 1px solid var(--border);
+}
+.photo-caption {
+  text-align: center;
+  font-size: .78rem;
+  color: var(--warm-gray);
+  margin-top: -8px;
+  margin-bottom: 12px;
+}
+
+/* ===== お問い合わせ・北斗についてページ ===== */
+.about-section { margin-bottom: 32px; }
+.about-section h2 {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: var(--navy);
+  border-left: 4px solid var(--vermilion);
+  padding-left: 12px;
+  margin-bottom: 16px;
+}
+.about-section p { font-size: .96rem; line-height: 2.0; color: var(--charcoal); margin-bottom: 12px; }
+.history-table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+.history-table tr { border-bottom: 1px solid var(--border); }
+.history-table td { padding: 9px 6px; vertical-align: top; }
+.history-table td:first-child { color: var(--navy); white-space: nowrap; width: 150px; }
+.contact-form-row { margin-bottom: 20px; }
+.contact-form-row label { display: block; font-size: .95rem; font-weight: bold; margin-bottom: 6px; }
+.contact-form-row input[type="text"],
+.contact-form-row input[type="email"],
+.contact-form-row textarea {
+  width: 100%; padding: 10px 14px;
+  font-size: 1rem; font-family: inherit;
+  border: 1px solid #c8c0b0;
+  background: white; color: var(--charcoal);
+  transition: border-color .2s;
+}
+.contact-form-row input:focus,
+.contact-form-row textarea:focus { outline: none; border-color: var(--navy); }
+.contact-form-row textarea { height: 160px; resize: vertical; }
+.contact-submit {
+  background: var(--navy); color: white;
+  border: none; padding: 12px 40px;
+  font-size: 1rem; font-family: inherit;
+  cursor: pointer; letter-spacing: .1em;
+  transition: background .2s;
+}
+.contact-submit:hover { background: #0f2548; }
+
+/* ===== 管理者メモ ===== */
+.admin-note {
+  background: var(--sidebar-bg);
+  border: 1px solid var(--border);
+  padding: 14px 18px;
+  font-size: .85rem;
+  color: var(--warm-gray);
+  margin-bottom: 24px;
+  line-height: 2.0;
+}
+.admin-note strong { color: var(--navy); }
+
+/* ===== フッター ===== */
+footer.site-footer {
+  background: var(--navy);
+  color: white;
+  margin-top: 64px;
+}
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 32px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.footer-title {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  margin: 0 0 4px;
+}
+.footer-subtitle { font-size: .75rem; color: rgba(255,255,255,.45); margin: 0; }
+.footer-section-title {
+  font-size: .65rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.38);
+  margin: 0 0 10px;
+}
+.footer-nav-list { list-style: none; margin: 0; padding: 0; }
+.footer-nav-list li a {
+  color: rgba(255,255,255,.70);
+  font-size: .9rem;
+  line-height: 2.2;
+  transition: color .15s;
+}
+.footer-nav-list li a:hover { color: white; text-decoration: none; }
+.footer-text {
+  font-size: .85rem;
+  color: rgba(255,255,255,.60);
+  line-height: 1.85;
+  margin: 0;
+}
+.footer-copyright {
+  border-top: 1px solid rgba(255,255,255,.14);
+  padding: 14px 32px;
+  max-width: 1100px;
+  margin: 0 auto;
+  font-size: .72rem;
+  color: rgba(255,255,255,.35);
+  text-align: center;
+}
+
+/* ===== レスポンシブ ===== */
+@media (max-width: 860px) {
+  .layout-with-sidebar { grid-template-columns: 1fr; }
+  aside.sidebar { border-left: none; border-top: 1px solid var(--border); padding-left: 0; padding-top: 32px; }
+  .backnumber-grid { grid-template-columns: repeat(3, 1fr); }
+  .footer-inner { grid-template-columns: 1fr; gap: 24px; }
+  .issue-layout { flex-direction: column; }
+  .issue-cover img { width: 200px; }
+}
+@media (max-width: 560px) {
+  body { font-size: 16px; }
+  .header-inner { padding: 16px 20px; flex-wrap: wrap; }
+  .site-title img.title-img { height: 60px; }
+  .container { padding: 32px 20px; }
+  .backnumber-grid { grid-template-columns: repeat(2, 1fr); }
+  nav.site-nav li a { padding: 10px 14px; font-size: .85rem; }
+  .header-award { display: none; }
+}

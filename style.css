@@ -1,0 +1,497 @@
+/* ============================================================
+   文芸同人誌「北斗」 共通スタイルシート
+   ※ このファイルは基本的に変更不要です
+   ============================================================ */
+
+/* ===== リセット・基本設定 ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "游明朝", "YuMincho", "ヒラギノ明朝 Pro W3", "HiraMinProN-W3", serif;
+  font-size: 18px;          /* 高齢者向けに大きめ */
+  line-height: 1.9;
+  color: #2a2a2a;
+  background: #f7f4ef;
+}
+a { color: #5a3e1b; text-decoration: none; }
+a:hover { text-decoration: underline; color: #8b1a1a; }
+
+/* ===== ヘッダー ===== */
+header {
+  background: #ffffff;
+  color: #1a1a1a;
+  border-bottom: 3px solid #1a1a1a;
+}
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+}
+.site-title {
+  font-size: 3.2rem;
+  letter-spacing: 0.5em;
+  font-weight: bold;
+  color: #1a1a1a;
+  line-height: 1;
+}
+.site-subtitle {
+  font-size: 0.82rem;
+  letter-spacing: 0.15em;
+  color: #666;
+  margin-top: 10px;
+}
+.header-badge {
+  text-align: right;
+  font-size: 0.78rem;
+  color: #666;
+  line-height: 1.9;
+  border-left: 1px solid #ccc;
+  padding-left: 20px;
+}
+
+/* ===== ナビゲーション ===== */
+nav { background: #8b1a1a; }
+nav ul {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  list-style: none;
+  padding: 0 24px;
+  flex-wrap: wrap;
+}
+nav ul li a {
+  display: block;
+  color: #fff;
+  padding: 14px 24px;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  transition: background 0.2s;
+}
+nav ul li a:hover,
+nav ul li a.active { background: #6b1212; text-decoration: none; }
+
+/* ===== ページタイトル（共通） ===== */
+.page-title {
+  font-size: 1.6rem;
+  color: #1a1a2e;
+  border-bottom: 3px solid #8b1a1a;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+  letter-spacing: 0.12em;
+}
+
+/* ===== 2カラムレイアウト（トップ・ブログ） ===== */
+.page-wrapper {
+  max-width: 1100px;
+  margin: 32px auto 48px;
+  padding: 0 16px;
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 32px;
+}
+
+/* ===== 1カラムレイアウト（バックナンバー・北斗について） ===== */
+.page-content {
+  max-width: 1100px;
+  margin: 32px auto 48px;
+  padding: 0 16px;
+}
+
+/* ===== カード共通 ===== */
+.card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+/* ===== 最新号エリア ===== */
+.latest-issue { overflow: hidden; margin-bottom: 28px; }
+.latest-issue-header {
+  background: #1a1a2e;
+  color: #f0e6d0;
+  padding: 13px 22px;
+  font-size: 0.88rem;
+  letter-spacing: 0.15em;
+}
+.latest-issue-body {
+  display: flex;
+  gap: 32px;
+  padding: 28px;
+  align-items: flex-start;
+}
+
+/* -----  表紙：大きく表示  ----- */
+.cover-area {
+  flex-shrink: 0;
+  width: 240px;           /* 従来 180px → 240px に拡大 */
+  text-align: center;
+}
+.cover-img {
+  width: 240px;
+  height: 340px;          /* 縦も比例拡大 */
+  object-fit: cover;
+  object-position: top;
+  border-radius: 3px;
+  box-shadow: 4px 4px 14px rgba(0,0,0,0.28);
+  display: block;
+  border: 1px solid #ccc;
+}
+.cover-caption { font-size: 0.78rem; color: #888; margin-top: 10px; }
+
+/* 目次 */
+.toc-area { flex: 1; }
+.toc-area h2 {
+  font-size: 1.4rem;
+  color: #1a1a2e;
+  border-bottom: 2px solid #8b1a1a;
+  padding-bottom: 8px;
+  margin-bottom: 18px;
+  letter-spacing: 0.1em;
+}
+.toc-meta { font-size: 0.85rem; color: #888; margin-bottom: 18px; }
+.toc-genre { margin-bottom: 16px; }
+.toc-genre-label {
+  display: inline-block;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  background: #1a1a2e;
+  color: #f0e6d0;
+  padding: 3px 12px;
+  border-radius: 2px;
+  margin-bottom: 7px;
+}
+.toc-genre-label.essay  { background: #5a7a3a; }
+.toc-genre-label.poem   { background: #5a3e7a; }
+.toc-genre-label.critic { background: #7a5a1a; }
+.toc-genre-label.misc   { background: #3a6a7a; }
+.toc-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+.toc-table tr { border-bottom: 1px dotted #ccc; }
+.toc-table tr:last-child { border-bottom: none; }
+.toc-table td { padding: 6px 6px; vertical-align: top; }
+.toc-table .work-title  { font-weight: bold; color: #2a2a2a; width: 55%; }
+.toc-table .work-author { color: #555; width: 35%; }
+.toc-table .work-page   { color: #aaa; font-size: 0.82rem; width: 10%; text-align: right; }
+.toc-cut { margin-top: 14px; font-size: 0.82rem; color: #aaa; }
+
+/* 目次スキャン画像（任意） */
+.toc-scan-area { margin-top: 20px; }
+.toc-scan-area img {
+  max-width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* ===== お知らせセクション ===== */
+.notice-section { padding: 22px 26px; margin-bottom: 28px; }
+.notice-section h3 {
+  font-size: 1.1rem;
+  color: #1a1a2e;
+  border-left: 4px solid #8b1a1a;
+  padding-left: 12px;
+  margin-bottom: 16px;
+  letter-spacing: 0.08em;
+}
+.notice-list { list-style: none; }
+.notice-list li {
+  display: flex;
+  gap: 14px;
+  padding: 8px 0;
+  border-bottom: 1px dotted #e0e0e0;
+  font-size: 0.92rem;
+  align-items: baseline;
+}
+.notice-list li:last-child { border-bottom: none; }
+.notice-date { color: #8b1a1a; flex-shrink: 0; font-size: 0.82rem; min-width: 90px; }
+.notice-new {
+  background: #e63e3e;
+  color: #fff;
+  font-size: 0.68rem;
+  padding: 1px 6px;
+  border-radius: 2px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+/* ===== サイドバー ===== */
+.sidebar-block { margin-bottom: 22px; overflow: hidden; }
+.sidebar-block-header {
+  background: #1a1a2e;
+  color: #f0e6d0;
+  padding: 10px 16px;
+  font-size: 0.88rem;
+  letter-spacing: 0.15em;
+}
+.sidebar-block-body { padding: 14px 16px; }
+
+/* バックナンバーリスト（サイドバー） */
+.bn-side-list { list-style: none; }
+.bn-side-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px dotted #eee;
+  font-size: 0.88rem;
+}
+.bn-side-list li:last-child { border-bottom: none; }
+.bn-thumb {
+  width: 40px; height: 57px;
+  border-radius: 2px; flex-shrink: 0;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 4px rgba(0,0,0,0.15);
+}
+.bn-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.bn-thumb-placeholder {
+  width: 40px; height: 57px;
+  background: linear-gradient(135deg, #1a1a2e, #8b1a1a);
+  border-radius: 2px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  color: #f0e6d0; font-size: 0.5rem; letter-spacing: 0.05em;
+}
+.bn-info { flex: 1; }
+.bn-num { font-weight: bold; color: #1a1a2e; }
+.bn-date { font-size: 0.75rem; color: #999; }
+.sidebar-more { text-align: right; margin-top: 10px; }
+.sidebar-more a { font-size: 0.85rem; }
+
+/* ブログリスト（サイドバー） */
+.blog-side-list { list-style: none; }
+.blog-side-list li {
+  padding: 9px 0;
+  border-bottom: 1px dotted #eee;
+  font-size: 0.88rem;
+}
+.blog-side-list li:last-child { border-bottom: none; }
+.blog-side-date { font-size: 0.75rem; color: #999; display: block; margin-bottom: 2px; }
+
+/* 北斗紹介・発行情報（サイドバー） */
+.about-text { font-size: 0.88rem; line-height: 1.9; color: #555; }
+.about-text strong { color: #8b1a1a; }
+
+/* ===== バックナンバーページ ===== */
+.year-section { margin-bottom: 40px; }
+.year-label {
+  background: #1a1a2e; color: #f0e6d0;
+  padding: 7px 20px; font-size: 0.95rem; letter-spacing: 0.15em;
+  display: inline-block; margin-bottom: 16px; border-radius: 2px;
+}
+.bn-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 18px;
+}
+.bn-card { overflow: hidden; transition: box-shadow 0.2s; }
+.bn-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.14); }
+
+/* 表紙サムネイル（バックナンバー一覧） */
+.bn-card-cover { width: 100%; height: 150px; overflow: hidden; background: linear-gradient(135deg, #1a1a2e, #8b1a1a); }
+.bn-card-cover img { width: 100%; height: 150px; object-fit: cover; object-position: top; }
+.bn-card-cover-placeholder {
+  width: 100%; height: 150px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #2e3a5a 50%, #8b1a1a 100%);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  color: #f0e6d0;
+}
+.bn-card-cover-title { font-size: 1.4rem; font-weight: bold; letter-spacing: 0.3em; }
+.bn-card-cover-num { font-size: 0.72rem; color: #c9b99a; margin-top: 5px; }
+.bn-card-body { padding: 12px 14px; }
+.bn-card-no { font-weight: bold; color: #1a1a2e; font-size: 0.96rem; }
+.bn-card-date { font-size: 0.78rem; color: #999; margin-bottom: 8px; }
+.bn-toc-toggle { font-size: 0.82rem; color: #8b1a1a; cursor: pointer; }
+.bn-toc-content { margin-top: 8px; font-size: 0.8rem; line-height: 2; color: #555; }
+
+/* -----  PDFダウンロードボタン  ----- */
+.btn-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  padding: 7px 14px;
+  background: #1a1a2e;
+  color: #f0e6d0;
+  font-size: 0.82rem;
+  border-radius: 3px;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: background 0.2s;
+  border: none;
+  cursor: pointer;
+}
+.btn-download:hover {
+  background: #8b1a1a;
+  color: #fff;
+  text-decoration: none;
+}
+.btn-download::before {
+  content: "↓";
+  font-size: 0.9em;
+}
+/* PDFが未登録の場合のグレーアウト */
+.btn-download.disabled {
+  background: #bbb;
+  color: #fff;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* ===== ブログページ ===== */
+.blog-post { padding: 26px 30px; margin-bottom: 24px; }
+.blog-post-meta {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 12px;
+}
+.blog-post-date { font-size: 0.85rem; color: #999; }
+.blog-post-tag {
+  font-size: 0.72rem; background: #1a1a2e; color: #f0e6d0;
+  padding: 3px 10px; border-radius: 2px;
+}
+.blog-post-tag.event  { background: #8b1a1a; }
+.blog-post-tag.news   { background: #3a6a3a; }
+.blog-post-tag.column { background: #5a3e7a; }
+.blog-post-h { font-size: 1.15rem; font-weight: bold; color: #1a1a2e; margin-bottom: 14px; }
+.blog-post-body { font-size: 0.95rem; line-height: 2; color: #444; }
+.blog-post-body p { margin-bottom: 12px; }
+.blog-post-body p:last-child { margin-bottom: 0; }
+
+/* -----  会合写真  ----- */
+.blog-post-body img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin: 16px 0;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  display: block;
+}
+/* 写真を横並びにしたい場合のグリッド */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+.photo-grid img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  margin: 0;   /* photo-grid内ではmarginリセット */
+}
+.photo-caption {
+  text-align: center;
+  font-size: 0.78rem;
+  color: #999;
+  margin-top: -8px;
+  margin-bottom: 12px;
+}
+
+/* アーカイブ・カテゴリ（サイドバー） */
+.arch-list { list-style: none; }
+.arch-list li { padding: 8px 0; border-bottom: 1px dotted #eee; font-size: 0.88rem; }
+.arch-list li:last-child { border-bottom: none; }
+
+/* ===== 北斗についてページ ===== */
+.about-card { padding: 30px 34px; margin-bottom: 26px; }
+.about-card h2 {
+  font-size: 1.15rem; color: #8b1a1a;
+  border-left: 4px solid #8b1a1a; padding-left: 12px;
+  margin-bottom: 18px; letter-spacing: 0.08em;
+}
+.about-card p { font-size: 0.96rem; line-height: 2; color: #444; margin-bottom: 14px; }
+.about-card p:last-child { margin-bottom: 0; }
+.history-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin-top: 8px; }
+.history-table tr { border-bottom: 1px dotted #ddd; }
+.history-table td { padding: 9px 6px; vertical-align: top; }
+.history-table td:first-child { color: #8b1a1a; white-space: nowrap; width: 150px; }
+.info-dl { font-size: 0.95rem; }
+.info-dl dt { font-weight: bold; color: #1a1a2e; margin-top: 14px; }
+.info-dl dd { color: #555; margin-left: 1em; }
+
+/* ===== お問い合わせページ ===== */
+.contact-form { padding: 30px 34px; }
+.contact-form h2 {
+  font-size: 1.1rem; color: #8b1a1a;
+  border-left: 4px solid #8b1a1a; padding-left: 12px;
+  margin-bottom: 20px;
+}
+.form-row { margin-bottom: 20px; }
+.form-row label {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: #1a1a2e;
+  margin-bottom: 6px;
+}
+.form-row input[type="text"],
+.form-row input[type="email"],
+.form-row textarea {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 1rem;
+  font-family: inherit;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background: #fafafa;
+  color: #2a2a2a;
+  transition: border-color 0.2s;
+}
+.form-row input:focus,
+.form-row textarea:focus {
+  outline: none;
+  border-color: #8b1a1a;
+  background: #fff;
+}
+.form-row textarea { height: 160px; resize: vertical; }
+.form-submit {
+  background: #8b1a1a;
+  color: #fff;
+  border: none;
+  padding: 12px 40px;
+  font-size: 1rem;
+  font-family: inherit;
+  border-radius: 3px;
+  cursor: pointer;
+  letter-spacing: 0.1em;
+  transition: background 0.2s;
+}
+.form-submit:hover { background: #6b1212; }
+.contact-info { padding: 22px 28px; }
+.contact-info p { font-size: 0.92rem; line-height: 2; color: #555; }
+
+/* ===== 管理者向けメモ（公開前に削除） ===== */
+.admin-note {
+  background: #fff8e1; border: 1px solid #ffe082;
+  border-radius: 4px; padding: 16px 20px;
+  font-size: 0.85rem; color: #5a4a00; margin-bottom: 26px; line-height: 1.9;
+}
+.admin-note strong { color: #8b1a1a; }
+
+/* ===== フッター ===== */
+footer {
+  background: #1a1a2e; color: #a0a0c0;
+  text-align: center; padding: 30px 16px;
+  font-size: 0.82rem; line-height: 2.1;
+}
+footer a { color: #c9b99a; }
+.footer-nav { margin-top: 10px; }
+.footer-nav a { margin: 0 8px; }
+
+/* ===== レスポンシブ（スマートフォン対応） ===== */
+@media (max-width: 768px) {
+  .page-wrapper { grid-template-columns: 1fr; }
+  .latest-issue-body { flex-direction: column; align-items: center; }
+  .cover-area { width: 100%; max-width: 280px; }
+  .cover-img { width: 100%; max-width: 280px; height: auto; }
+  .toc-area { width: 100%; }
+  nav ul { flex-wrap: wrap; }
+  nav ul li a { padding: 11px 16px; font-size: 0.95rem; }
+  .site-title { font-size: 2.2rem; }
+  .bn-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+  .photo-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+}

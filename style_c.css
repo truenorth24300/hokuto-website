@@ -1,0 +1,470 @@
+/* ============================================================
+   文芸同人誌「北斗」 デザイン案 C「深藍と白」
+   コンセプト：深い藍色 × 白 × 薄いグレー
+              知的・清潔感・読みやすさを最優先にした
+              落ち着いた格調スタイル。高齢者にも優しい高コントラスト。
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "Noto Serif JP", "游明朝", "YuMincho", serif;
+  font-size: 18px;
+  line-height: 2.0;
+  color: #1a2030;
+  background: #f0f2f5;
+}
+a { color: #1a3a6a; text-decoration: none; }
+a:hover { text-decoration: underline; color: #2a5aaa; }
+
+/* ===== ヘッダー ===== */
+header {
+  background: #ffffff;
+  border-bottom: 1px solid #d0d8e8;
+}
+/* 上部の藍色帯 */
+header::before {
+  content: "";
+  display: block;
+  height: 6px;
+  background: #1a3a6a;
+}
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 28px 20px;
+}
+.site-title {
+  line-height: 1;
+}
+.site-title img.title-img {
+  height: 90px;
+  width: auto;
+  display: block;
+  /* 白背景なので黒文字画像を使用 */
+}
+.site-title span.title-text {
+  font-size: 3.6rem;
+  letter-spacing: 0.7em;
+  font-weight: 700;
+  color: #1a2030;
+  line-height: 1;
+  display: block;
+}
+.site-subtitle {
+  font-size: 0.82rem;
+  letter-spacing: 0.18em;
+  color: #6a7a9a;
+  margin-top: 12px;
+  font-weight: 300;
+}
+.header-badge {
+  text-align: right;
+  font-size: 0.78rem;
+  color: #6a7a9a;
+  line-height: 2.0;
+  border-left: 1px solid #d0d8e8;
+  padding-left: 22px;
+}
+
+/* ===== ナビゲーション ===== */
+nav {
+  background: #1a3a6a;
+}
+nav ul {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  list-style: none;
+  padding: 0 28px;
+  flex-wrap: wrap;
+}
+nav ul li a {
+  display: block;
+  color: #c8d8f0;
+  padding: 14px 26px;
+  font-size: 0.98rem;
+  letter-spacing: 0.15em;
+  transition: background 0.2s, color 0.2s;
+  font-weight: 300;
+}
+nav ul li a:hover,
+nav ul li a.active {
+  background: #0f2548;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* ===== ページタイトル ===== */
+.page-title {
+  font-size: 1.6rem;
+  color: #1a2030;
+  padding-bottom: 12px;
+  margin-bottom: 30px;
+  letter-spacing: 0.2em;
+  border-bottom: 2px solid #1a3a6a;
+}
+
+/* ===== 2カラムレイアウト ===== */
+.page-wrapper {
+  max-width: 1100px;
+  margin: 36px auto 52px;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 36px;
+}
+
+/* ===== 1カラムレイアウト ===== */
+.page-content {
+  max-width: 1100px;
+  margin: 36px auto 52px;
+  padding: 0 20px;
+}
+
+/* ===== カード共通 ===== */
+.card {
+  background: #ffffff;
+  border: 1px solid #d0d8e8;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(26,58,106,0.06);
+}
+
+/* ===== 最新号エリア ===== */
+.latest-issue { overflow: hidden; margin-bottom: 28px; }
+.latest-issue-header {
+  background: #1a3a6a;
+  color: #ffffff;
+  padding: 13px 24px;
+  font-size: 0.9rem;
+  letter-spacing: 0.2em;
+}
+.latest-issue-body {
+  display: flex;
+  gap: 36px;
+  padding: 30px;
+  align-items: flex-start;
+}
+
+/* 表紙 */
+.cover-area { flex-shrink: 0; width: 240px; text-align: center; }
+.cover-img {
+  width: 240px;
+  height: 340px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 2px;
+  box-shadow:
+    0 0 0 1px #d0d8e8,
+    4px 6px 18px rgba(26,58,106,0.18);
+  display: block;
+}
+.cover-caption { font-size: 0.78rem; color: #8a9ab8; margin-top: 10px; }
+
+/* 目次 */
+.toc-area { flex: 1; }
+.toc-area h2 {
+  font-size: 1.4rem;
+  color: #1a2030;
+  border-bottom: 1px solid #d0d8e8;
+  padding-bottom: 10px;
+  margin-bottom: 18px;
+  letter-spacing: 0.22em;
+}
+.toc-meta { font-size: 0.85rem; color: #8a9ab8; margin-bottom: 18px; letter-spacing: 0.1em; }
+.toc-genre { margin-bottom: 16px; }
+.toc-genre-label {
+  display: inline-block;
+  font-size: 0.78rem;
+  letter-spacing: 0.15em;
+  background: #1a3a6a;
+  color: #ffffff;
+  padding: 3px 12px;
+  border-radius: 2px;
+  margin-bottom: 7px;
+}
+.toc-genre-label.essay  { background: #2a6a4a; }
+.toc-genre-label.poem   { background: #4a3a7a; }
+.toc-genre-label.critic { background: #6a4a2a; }
+.toc-genre-label.misc   { background: #2a5a7a; }
+.toc-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+.toc-table tr { border-bottom: 1px dotted #d0d8e8; }
+.toc-table tr:last-child { border-bottom: none; }
+.toc-table td { padding: 7px 6px; vertical-align: top; }
+.toc-table .work-title  { font-weight: bold; color: #1a2030; width: 55%; }
+.toc-table .work-author { color: #4a5a7a; width: 35%; }
+.toc-table .work-page   { color: #a0b0c8; font-size: 0.82rem; width: 10%; text-align: right; }
+.toc-cut { margin-top: 14px; font-size: 0.82rem; color: #a0b0c8; }
+
+/* 目次スキャン画像 */
+.toc-scan-area { margin-top: 20px; }
+.toc-scan-area img {
+  max-width: 100%;
+  border: 1px solid #d0d8e8;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(26,58,106,0.08);
+}
+
+/* ===== お知らせ ===== */
+.notice-section { padding: 22px 26px; margin-bottom: 28px; }
+.notice-section h3 {
+  font-size: 1.05rem;
+  color: #1a2030;
+  border-left: 4px solid #1a3a6a;
+  padding-left: 12px;
+  margin-bottom: 16px;
+  letter-spacing: 0.12em;
+}
+.notice-list { list-style: none; }
+.notice-list li {
+  display: flex;
+  gap: 14px;
+  padding: 8px 0;
+  border-bottom: 1px dotted #d0d8e8;
+  font-size: 0.92rem;
+  align-items: baseline;
+}
+.notice-list li:last-child { border-bottom: none; }
+.notice-date { color: #1a3a6a; flex-shrink: 0; font-size: 0.82rem; min-width: 90px; }
+.notice-new {
+  background: #1a3a6a;
+  color: #ffffff;
+  font-size: 0.68rem;
+  padding: 1px 6px;
+  border-radius: 2px;
+  margin-right: 5px;
+}
+
+/* ===== サイドバー ===== */
+.sidebar-block { margin-bottom: 22px; overflow: hidden; }
+.sidebar-block-header {
+  background: #1a3a6a;
+  color: #ffffff;
+  padding: 10px 16px;
+  font-size: 0.88rem;
+  letter-spacing: 0.18em;
+}
+.sidebar-block-body { padding: 14px 16px; }
+
+.bn-side-list { list-style: none; }
+.bn-side-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px dotted #d0d8e8;
+  font-size: 0.88rem;
+}
+.bn-side-list li:last-child { border-bottom: none; }
+.bn-thumb {
+  width: 40px; height: 57px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border: 1px solid #d0d8e8;
+  box-shadow: 1px 2px 5px rgba(26,58,106,0.12);
+}
+.bn-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.bn-thumb-placeholder {
+  width: 40px; height: 57px;
+  background: linear-gradient(135deg, #1a3a6a, #2a5aaa);
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  color: #ffffff; font-size: 0.5rem; letter-spacing: 0.05em;
+}
+.bn-info { flex: 1; }
+.bn-num { font-weight: bold; color: #1a2030; }
+.bn-date { font-size: 0.75rem; color: #8a9ab8; }
+.sidebar-more { text-align: right; margin-top: 10px; }
+.sidebar-more a { font-size: 0.85rem; color: #1a3a6a; }
+
+.blog-side-list { list-style: none; }
+.blog-side-list li {
+  padding: 9px 0;
+  border-bottom: 1px dotted #d0d8e8;
+  font-size: 0.88rem;
+}
+.blog-side-list li:last-child { border-bottom: none; }
+.blog-side-date { font-size: 0.75rem; color: #8a9ab8; display: block; margin-bottom: 2px; }
+
+.about-text { font-size: 0.88rem; line-height: 2.0; color: #4a5a7a; }
+.about-text strong { color: #1a3a6a; }
+
+/* ===== バックナンバーページ ===== */
+.year-section { margin-bottom: 40px; }
+.year-label {
+  background: #1a3a6a; color: #ffffff;
+  padding: 7px 20px; font-size: 0.95rem; letter-spacing: 0.18em;
+  display: inline-block; margin-bottom: 16px; border-radius: 2px;
+}
+.bn-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 18px;
+}
+.bn-card { overflow: hidden; transition: box-shadow 0.2s; }
+.bn-card:hover { box-shadow: 0 4px 16px rgba(26,58,106,0.16); }
+.bn-card-cover { width: 100%; height: 150px; overflow: hidden; background: #1a3a6a; }
+.bn-card-cover img { width: 100%; height: 150px; object-fit: cover; object-position: top; }
+.bn-card-cover-placeholder {
+  width: 100%; height: 150px;
+  background: linear-gradient(160deg, #1a3a6a 0%, #2a5aaa 100%);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  color: #ffffff;
+}
+.bn-card-cover-title { font-size: 1.4rem; font-weight: 700; letter-spacing: 0.4em; }
+.bn-card-cover-num { font-size: 0.72rem; color: #a0b8d8; margin-top: 5px; }
+.bn-card-body { padding: 12px 14px; }
+.bn-card-no { font-weight: bold; color: #1a2030; font-size: 0.96rem; }
+.bn-card-date { font-size: 0.78rem; color: #8a9ab8; margin-bottom: 8px; }
+.bn-toc-toggle { font-size: 0.82rem; color: #1a3a6a; cursor: pointer; }
+.bn-toc-content { margin-top: 8px; font-size: 0.8rem; line-height: 2; color: #4a5a7a; }
+
+.btn-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  padding: 7px 14px;
+  background: #1a3a6a;
+  color: #ffffff;
+  font-size: 0.82rem;
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  transition: background 0.2s;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.btn-download:hover { background: #0f2548; color: #fff; text-decoration: none; }
+.btn-download::before { content: "↓"; font-size: 0.9em; }
+.btn-download.disabled { background: #bbb; color: #fff; cursor: default; pointer-events: none; }
+
+/* ===== ブログページ ===== */
+.blog-post { padding: 26px 30px; margin-bottom: 24px; }
+.blog-post-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.blog-post-date { font-size: 0.85rem; color: #8a9ab8; }
+.blog-post-tag {
+  font-size: 0.72rem; background: #1a3a6a; color: #ffffff;
+  padding: 3px 10px; border-radius: 2px;
+}
+.blog-post-tag.event  { background: #6a2a2a; }
+.blog-post-tag.news   { background: #2a6a4a; }
+.blog-post-tag.column { background: #4a3a7a; }
+.blog-post-h { font-size: 1.15rem; font-weight: bold; color: #1a2030; margin-bottom: 14px; letter-spacing: 0.08em; }
+.blog-post-body { font-size: 0.95rem; line-height: 2.1; color: #2a3a50; }
+.blog-post-body p { margin-bottom: 12px; }
+.blog-post-body p:last-child { margin-bottom: 0; }
+.blog-post-body img {
+  max-width: 100%; height: auto;
+  margin: 16px 0;
+  border: 1px solid #d0d8e8;
+  border-radius: 2px;
+  box-shadow: 0 2px 10px rgba(26,58,106,0.10);
+  display: block;
+}
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px; margin: 16px 0;
+}
+.photo-grid img {
+  width: 100%; height: 160px; object-fit: cover;
+  border: 1px solid #d0d8e8;
+  border-radius: 2px;
+  margin: 0;
+}
+.photo-caption { text-align: center; font-size: 0.78rem; color: #8a9ab8; margin-top: -8px; margin-bottom: 12px; }
+
+.arch-list { list-style: none; }
+.arch-list li { padding: 8px 0; border-bottom: 1px dotted #d0d8e8; font-size: 0.88rem; }
+.arch-list li:last-child { border-bottom: none; }
+
+/* ===== 北斗についてページ ===== */
+.about-card { padding: 30px 34px; margin-bottom: 26px; }
+.about-card h2 {
+  font-size: 1.1rem; color: #1a3a6a;
+  border-left: 4px solid #1a3a6a; padding-left: 12px;
+  margin-bottom: 18px; letter-spacing: 0.1em;
+}
+.about-card p { font-size: 0.96rem; line-height: 2.1; color: #2a3a50; margin-bottom: 14px; }
+.about-card p:last-child { margin-bottom: 0; }
+.history-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin-top: 8px; }
+.history-table tr { border-bottom: 1px dotted #d0d8e8; }
+.history-table td { padding: 9px 6px; vertical-align: top; }
+.history-table td:first-child { color: #1a3a6a; white-space: nowrap; width: 150px; }
+.info-dl { font-size: 0.95rem; }
+.info-dl dt { font-weight: bold; color: #1a2030; margin-top: 14px; }
+.info-dl dd { color: #4a5a7a; margin-left: 1em; }
+
+/* ===== お問い合わせページ ===== */
+.contact-form { padding: 30px 34px; }
+.contact-form h2 {
+  font-size: 1.1rem; color: #1a3a6a;
+  border-left: 4px solid #1a3a6a; padding-left: 12px;
+  margin-bottom: 20px; letter-spacing: 0.08em;
+}
+.form-row { margin-bottom: 20px; }
+.form-row label { display: block; font-size: 0.95rem; font-weight: bold; color: #1a2030; margin-bottom: 6px; }
+.form-row input[type="text"],
+.form-row input[type="email"],
+.form-row textarea {
+  width: 100%; padding: 10px 14px;
+  font-size: 1rem; font-family: inherit;
+  border: 1px solid #c0c8d8;
+  border-radius: 2px;
+  background: #f8fafc; color: #1a2030;
+  transition: border-color 0.2s;
+}
+.form-row input:focus,
+.form-row textarea:focus { outline: none; border-color: #1a3a6a; background: #fff; }
+.form-row textarea { height: 160px; resize: vertical; }
+.form-submit {
+  background: #1a3a6a; color: #ffffff;
+  border: none; padding: 12px 40px;
+  font-size: 1rem; font-family: inherit;
+  border-radius: 2px;
+  cursor: pointer; letter-spacing: 0.12em;
+  transition: background 0.2s;
+}
+.form-submit:hover { background: #0f2548; }
+.contact-info { padding: 22px 28px; }
+.contact-info p { font-size: 0.92rem; line-height: 2; color: #4a5a7a; }
+
+/* ===== 管理者向けメモ ===== */
+.admin-note {
+  background: #f0f4fa; border: 1px solid #c0c8d8;
+  border-radius: 2px; padding: 16px 20px;
+  font-size: 0.85rem; color: #4a5a7a; margin-bottom: 26px; line-height: 2.0;
+}
+.admin-note strong { color: #1a3a6a; }
+
+/* ===== フッター ===== */
+footer {
+  background: #1a3a6a;
+  color: #a0b8d8;
+  text-align: center;
+  padding: 32px 16px;
+  font-size: 0.82rem;
+  line-height: 2.2;
+}
+footer a { color: #c0d0e8; }
+footer a:hover { color: #ffffff; }
+.footer-nav { margin-top: 10px; }
+.footer-nav a { margin: 0 8px; }
+
+/* ===== レスポンシブ ===== */
+@media (max-width: 768px) {
+  .page-wrapper { grid-template-columns: 1fr; }
+  .latest-issue-body { flex-direction: column; align-items: center; }
+  .cover-area { width: 100%; max-width: 280px; }
+  .cover-img { width: 100%; max-width: 280px; height: auto; }
+  .toc-area { width: 100%; }
+  nav ul { flex-wrap: wrap; }
+  nav ul li a { padding: 11px 16px; font-size: 0.95rem; }
+  .site-title { font-size: 2.4rem; }
+  .bn-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+}
