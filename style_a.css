@@ -175,11 +175,13 @@ nav ul li a.active {
   align-items: flex-start;
 }
 
-/* 表紙（約2倍に拡大） */
-.cover-area { flex-shrink: 0; width: 280px; text-align: center; }
+/* 表紙（さらに約2倍に拡大・ウィンドウサイズに追従） */
+.cover-area { flex-shrink: 0; width: 560px; max-width: 100%; text-align: center; }
 .cover-img {
-  width: 280px;
-  height: 396px;
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+  aspect-ratio: 5 / 7;
   object-fit: cover;
   object-position: top;
   border-radius: 0;
@@ -552,8 +554,8 @@ footer a { color: #d4c8a8; }
     padding: 20px 16px;
     gap: 20px;
   }
-  .cover-area { width: 100%; max-width: 240px; }
-  .cover-img { width: 100%; max-width: 240px; height: auto; }
+  .cover-area { width: 100%; max-width: 400px; }
+  .cover-img { width: 100%; max-width: 400px; height: auto; }
   .toc-area { width: 100%; }
   .toc-area h2 { font-size: 1.1rem; }
   .toc-table { font-size: 0.85rem; }
