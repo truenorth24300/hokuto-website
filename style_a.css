@@ -175,11 +175,15 @@ nav ul li a.active {
   align-items: flex-start;
 }
 
-/* 表紙（さらに約2倍に拡大・ウィンドウサイズに追従） */
-.cover-area { flex-shrink: 0; width: 560px; max-width: 100%; text-align: center; }
+/* 表紙（面积比4/9倍・ウィンドウサイズに追従） */
+/* 560×4/9 = 373px、縦横比を保ったまま拡縮 */
+.cover-area {
+  flex: 0 0 clamp(200px, 28vw, 373px);
+  max-width: 373px;
+  text-align: center;
+}
 .cover-img {
   width: 100%;
-  max-width: 560px;
   height: auto;
   aspect-ratio: 5 / 7;
   object-fit: cover;
@@ -191,8 +195,8 @@ nav ul li a.active {
 }
 .cover-caption { font-size: 0.78rem; color: #9a8a70; margin-top: 10px; }
 
-/* 目次 */
-.toc-area { flex: 1; }
+/* 目次（残り幅を占有、最小幅を確保） */
+.toc-area { flex: 1; min-width: 0; }
 .toc-area h2 {
   font-size: 1.4rem;
   color: #1c1208;
@@ -554,8 +558,7 @@ footer a { color: #d4c8a8; }
     padding: 20px 16px;
     gap: 20px;
   }
-  .cover-area { width: 100%; max-width: 400px; }
-  .cover-img { width: 100%; max-width: 400px; height: auto; }
+  .cover-area { flex: none; width: 100%; max-width: 300px; }
   .toc-area { width: 100%; }
   .toc-area h2 { font-size: 1.1rem; }
   .toc-table { font-size: 0.85rem; }
