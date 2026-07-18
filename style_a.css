@@ -175,11 +175,11 @@ nav ul li a.active {
   align-items: flex-start;
 }
 
-/* 表紙（面积比4/9倍・ウィンドウサイズに追従） */
-/* 560×4/9 = 373px、縦横比を保ったまま拡縮 */
+/* 表紙（面积比1/4倍・ウィンドウサイズに追従） */
+/* 373px × 1/2 = 187px（面积比1/4） */
 .cover-area {
-  flex: 0 0 clamp(200px, 28vw, 373px);
-  max-width: 373px;
+  flex: 0 0 clamp(120px, 14vw, 187px);
+  max-width: 187px;
   text-align: center;
 }
 .cover-img {
