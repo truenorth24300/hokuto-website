@@ -52,20 +52,58 @@
           （現在はPDF公開準備中です）
        ================================================================ -->
 
-  <div class="admin-note">
-    <strong>【管理者向けメモ】</strong><br>
-    第728号（令和8年6月號）のみ、実際の表紙・目次を掲載しています。<br>
-    それ以外の号は<strong>枠だけを用意した仮置き</strong>です。号数と発行月は「毎月1日発行」から逆算した想定値のため、
-    バックナンバー資料をいただき次第、正しい情報に差し替えます。<br>
-    PDFファイルは <code>pdfs/</code> フォルダに入れてください（例：<code>pdfs/hokuto_728.pdf</code>）。<br>
-    PDFが未公開の号は「PDF準備中」と表示しています。PDF公開時にダウンロードリンクへ差し替えてください。<br>
-    このメモ欄は公開前に削除してください（<code>&lt;div class="admin-note"&gt;〜&lt;/div&gt;</code> ごと削除）。
-  </div>
+  <p style="margin:0 0 22px;color:#6a5a40;font-size:0.9rem;line-height:1.9;">
+    表紙画像を掲載している号は、実際の表紙をご覧いただけます。本文PDFは現在公開準備中です。
+  </p>
 
   <!-- ▼▼▼ 令和8年（2026年） ▼▼▼ -->
   <div class="year-section">
     <div class="year-label">令和8年（2026年）</div>
     <div class="bn-grid">
+
+      <div class="card bn-card" id="no730">
+        <div class="bn-card-cover">
+          <img src="images/cover_730.jpg" alt="第730号 表紙">
+        </div>
+        <div class="bn-card-body">
+          <div class="bn-card-no">第730号</div>
+          <div class="bn-card-date">令和8年9月1日発行　頒価500円</div>
+          <details style="margin-top:8px;">
+            <summary class="bn-toc-toggle">▶ 目次を見る</summary>
+            <div class="bn-toc-content">
+              【小説】面白くて非なるもの／永野佳奈子<br>
+              【小説】おれの日常を取り戻すことの件（四）／高田杜康<br>
+              【小説】ひとりになれば（その六）／藁科眞魚<br>
+              【詩】バンビが死んだ日／藁科眞魚<br>
+              【エッセイ】山村生活―その後―　変わりゆく環境／天動説／池田龍一<br>
+              【評論】平塚らいてう（36）／ゲンヒロ<br>
+              人工天文台／編集後記　ほか
+            </div>
+          </details>
+          <span class="btn-download disabled preparing" aria-disabled="true">PDF準備中</span>
+        </div>
+      </div>
+
+      <div class="card bn-card" id="no729">
+        <div class="bn-card-cover">
+          <img src="images/cover_729.jpg" alt="第729号 表紙">
+        </div>
+        <div class="bn-card-body">
+          <div class="bn-card-no">第729号</div>
+          <div class="bn-card-date">令和8年7月1日発行　七・八月合併號　頒価500円</div>
+          <details style="margin-top:8px;">
+            <summary class="bn-toc-toggle">▶ 目次を見る</summary>
+            <div class="bn-toc-content">
+              【小説】おれの日常を取り戻すことの件（三）／高田杜康<br>
+              【評論】冤罪を作らず／竹中忍<br>
+              【詩】はるの祝祭のスケルツォ／藁科眞魚<br>
+              【特集】寺田繁著『小説岡戸武平 乱歩わが友』<br>
+              人工天文台／編集後記　ほか
+            </div>
+          </details>
+          <span class="btn-download disabled preparing" aria-disabled="true">PDF準備中</span>
+        </div>
+      </div>
 
       <div class="card bn-card" id="no728">
         <div class="bn-card-cover">
@@ -94,10 +132,7 @@
 
       <div class="card bn-card" id="no727">
         <div class="bn-card-cover">
-          <div class="bn-card-cover-placeholder">
-            <div class="bn-card-cover-title">北斗</div>
-            <div class="bn-card-cover-num">第727号</div>
-          </div>
+          <img src="images/cover_727.jpg" alt="第727号 表紙">
         </div>
         <div class="bn-card-body">
           <div class="bn-card-no">第727号</div>
@@ -112,10 +147,7 @@
 
       <div class="card bn-card" id="no726">
         <div class="bn-card-cover">
-          <div class="bn-card-cover-placeholder">
-            <div class="bn-card-cover-title">北斗</div>
-            <div class="bn-card-cover-num">第726号</div>
-          </div>
+          <img src="images/cover_726.jpg" alt="第726号 表紙">
         </div>
         <div class="bn-card-body">
           <div class="bn-card-no">第726号</div>
@@ -130,10 +162,7 @@
 
       <div class="card bn-card" id="no725">
         <div class="bn-card-cover">
-          <div class="bn-card-cover-placeholder">
-            <div class="bn-card-cover-title">北斗</div>
-            <div class="bn-card-cover-num">第725号</div>
-          </div>
+          <img src="images/cover_725.jpg" alt="第725号 表紙">
         </div>
         <div class="bn-card-body">
           <div class="bn-card-no">第725号</div>
@@ -148,10 +177,7 @@
 
       <div class="card bn-card" id="no724">
         <div class="bn-card-cover">
-          <div class="bn-card-cover-placeholder">
-            <div class="bn-card-cover-title">北斗</div>
-            <div class="bn-card-cover-num">第724号</div>
-          </div>
+          <img src="images/cover_724.jpg" alt="第724号 表紙">
         </div>
         <div class="bn-card-body">
           <div class="bn-card-no">第724号</div>
@@ -166,10 +192,7 @@
 
       <div class="card bn-card" id="no723">
         <div class="bn-card-cover">
-          <div class="bn-card-cover-placeholder">
-            <div class="bn-card-cover-title">北斗</div>
-            <div class="bn-card-cover-num">第723号</div>
-          </div>
+          <img src="images/cover_723.jpg" alt="第723号 表紙">
         </div>
         <div class="bn-card-body">
           <div class="bn-card-no">第723号</div>
@@ -206,10 +229,7 @@
 
       <div class="card bn-card" id="no721">
         <div class="bn-card-cover">
-          <div class="bn-card-cover-placeholder">
-            <div class="bn-card-cover-title">北斗</div>
-            <div class="bn-card-cover-num">第721号</div>
-          </div>
+          <img src="images/cover_721.jpg" alt="第721号 表紙">
         </div>
         <div class="bn-card-body">
           <div class="bn-card-no">第721号</div>
@@ -220,10 +240,7 @@
 
       <div class="card bn-card" id="no720">
         <div class="bn-card-cover">
-          <div class="bn-card-cover-placeholder">
-            <div class="bn-card-cover-title">北斗</div>
-            <div class="bn-card-cover-num">第720号</div>
-          </div>
+          <img src="images/cover_720.jpg" alt="第720号 表紙">
         </div>
         <div class="bn-card-body">
           <div class="bn-card-no">第720号</div>
@@ -234,10 +251,7 @@
 
       <div class="card bn-card" id="no719">
         <div class="bn-card-cover">
-          <div class="bn-card-cover-placeholder">
-            <div class="bn-card-cover-title">北斗</div>
-            <div class="bn-card-cover-num">第719号</div>
-          </div>
+          <img src="images/cover_719.jpg" alt="第719号 表紙">
         </div>
         <div class="bn-card-body">
           <div class="bn-card-no">第719号</div>
