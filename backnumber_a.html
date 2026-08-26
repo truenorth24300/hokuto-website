@@ -48,8 +48,8 @@
        2. 最新号の年のセクションの先頭に貼り付ける
        3. 号数・日付・目次の内容を書き換える
        4. 表紙画像を images/ フォルダに入れ、src= のファイル名を変更する
-       5. PDFファイルを pdfs/ フォルダに入れ、href= のファイル名を変更する
-          （PDFがない場合は btn-download に class="disabled" を追加してください）
+       5. PDFを公開する号は pdfs/ フォルダにPDFを入れ、準備中の表示をダウンロードリンクに差し替える
+          （現在はPDF公開準備中です）
        ================================================================ -->
 
   <div class="admin-note">
@@ -58,7 +58,7 @@
     それ以外の号は<strong>枠だけを用意した仮置き</strong>です。号数と発行月は「毎月1日発行」から逆算した想定値のため、
     バックナンバー資料をいただき次第、正しい情報に差し替えます。<br>
     PDFファイルは <code>pdfs/</code> フォルダに入れてください（例：<code>pdfs/hokuto_728.pdf</code>）。<br>
-    PDFがまだない号は「PDFをダウンロード」ボタンに <code>class="btn-download disabled"</code> を付けるとグレーアウトになります。<br>
+    PDFが未公開の号は「PDF準備中」と表示しています。PDF公開時にダウンロードリンクへ差し替えてください。<br>
     このメモ欄は公開前に削除してください（<code>&lt;div class="admin-note"&gt;〜&lt;/div&gt;</code> ごと削除）。
   </div>
 
@@ -88,7 +88,7 @@
               人工天文台／編集後記　ほか
             </div>
           </details>
-          <a href="pdfs/hokuto_728.pdf" class="btn-download disabled" download>PDFをダウンロード</a>
+          <span class="btn-download disabled preparing" aria-disabled="true">PDF準備中</span>
         </div>
       </div>
 
@@ -106,7 +106,7 @@
             <summary class="bn-toc-toggle">▶ 目次を見る</summary>
             <div class="bn-toc-content">※ 目次情報をここに入力してください</div>
           </details>
-          <a href="pdfs/hokuto_727.pdf" class="btn-download disabled" download>PDFをダウンロード</a>
+          <span class="btn-download disabled preparing" aria-disabled="true">PDF準備中</span>
         </div>
       </div>
 
@@ -124,7 +124,7 @@
             <summary class="bn-toc-toggle">▶ 目次を見る</summary>
             <div class="bn-toc-content">※ 目次情報をここに入力してください</div>
           </details>
-          <a href="pdfs/hokuto_726.pdf" class="btn-download disabled" download>PDFをダウンロード</a>
+          <span class="btn-download disabled preparing" aria-disabled="true">PDF準備中</span>
         </div>
       </div>
 
@@ -142,7 +142,7 @@
             <summary class="bn-toc-toggle">▶ 目次を見る</summary>
             <div class="bn-toc-content">※ 目次情報をここに入力してください</div>
           </details>
-          <a href="pdfs/hokuto_725.pdf" class="btn-download disabled" download>PDFをダウンロード</a>
+          <span class="btn-download disabled preparing" aria-disabled="true">PDF準備中</span>
         </div>
       </div>
 
@@ -160,7 +160,7 @@
             <summary class="bn-toc-toggle">▶ 目次を見る</summary>
             <div class="bn-toc-content">※ 目次情報をここに入力してください</div>
           </details>
-          <a href="pdfs/hokuto_724.pdf" class="btn-download disabled" download>PDFをダウンロード</a>
+          <span class="btn-download disabled preparing" aria-disabled="true">PDF準備中</span>
         </div>
       </div>
 
@@ -178,7 +178,7 @@
             <summary class="bn-toc-toggle">▶ 目次を見る</summary>
             <div class="bn-toc-content">※ 目次情報をここに入力してください</div>
           </details>
-          <a href="pdfs/hokuto_723.pdf" class="btn-download disabled" download>PDFをダウンロード</a>
+          <span class="btn-download disabled preparing" aria-disabled="true">PDF準備中</span>
         </div>
       </div>
 
@@ -200,7 +200,7 @@
         <div class="bn-card-body">
           <div class="bn-card-no">第722号</div>
           <div class="bn-card-date">令和7年12月1日発行</div>
-          <a href="pdfs/hokuto_722.pdf" class="btn-download disabled" download>PDFをダウンロード</a>
+          <span class="btn-download disabled preparing" aria-disabled="true">PDF準備中</span>
         </div>
       </div>
 
@@ -214,7 +214,7 @@
         <div class="bn-card-body">
           <div class="bn-card-no">第721号</div>
           <div class="bn-card-date">令和7年11月1日発行</div>
-          <a href="pdfs/hokuto_721.pdf" class="btn-download disabled" download>PDFをダウンロード</a>
+          <span class="btn-download disabled preparing" aria-disabled="true">PDF準備中</span>
         </div>
       </div>
 
@@ -228,7 +228,7 @@
         <div class="bn-card-body">
           <div class="bn-card-no">第720号</div>
           <div class="bn-card-date">令和7年10月1日発行</div>
-          <a href="pdfs/hokuto_720.pdf" class="btn-download disabled" download>PDFをダウンロード</a>
+          <span class="btn-download disabled preparing" aria-disabled="true">PDF準備中</span>
         </div>
       </div>
 
@@ -242,7 +242,7 @@
         <div class="bn-card-body">
           <div class="bn-card-no">第719号</div>
           <div class="bn-card-date">令和7年9月1日発行</div>
-          <a href="pdfs/hokuto_719.pdf" class="btn-download disabled" download>PDFをダウンロード</a>
+          <span class="btn-download disabled preparing" aria-disabled="true">PDF準備中</span>
         </div>
       </div>
 
@@ -256,7 +256,7 @@
         <div class="bn-card-body">
           <div class="bn-card-no">第718号</div>
           <div class="bn-card-date">令和7年8月1日発行</div>
-          <a href="pdfs/hokuto_718.pdf" class="btn-download disabled" download>PDFをダウンロード</a>
+          <span class="btn-download disabled preparing" aria-disabled="true">PDF準備中</span>
         </div>
       </div>
 
@@ -270,7 +270,7 @@
         <div class="bn-card-body">
           <div class="bn-card-no">第717号</div>
           <div class="bn-card-date">令和7年7月1日発行</div>
-          <a href="pdfs/hokuto_717.pdf" class="btn-download disabled" download>PDFをダウンロード</a>
+          <span class="btn-download disabled preparing" aria-disabled="true">PDF準備中</span>
         </div>
       </div>
 
@@ -293,6 +293,7 @@
     <a href="about_a.html">北斗について</a>　／
     <a href="contact_a.html">お問い合わせ</a>
   </p>
+  <p class="visitor-counter-row"><img class="visitor-counter" src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Ftruenorth24300.github.io%2Fhokuto-website%2F&amp;label=%E9%96%B2%E8%A6%A7&amp;color=%238b2020&amp;icon=" alt="サイト閲覧数"></p>
 </footer>
 
 </body>

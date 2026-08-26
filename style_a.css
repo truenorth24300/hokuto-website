@@ -230,18 +230,6 @@ nav ul li a.active {
 .toc-table .work-page   { color: #b0a080; font-size: 0.82rem; width: 10%; text-align: right; }
 .toc-cut { margin-top: 14px; font-size: 0.82rem; color: #b0a080; }
 
-/* 目次の誌面イメージ（クリックで拡大） */
-.toc-scan { margin-top: 20px; padding-top: 18px; border-top: 1px solid #c8b89a; }
-.toc-scan img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border: 1px solid #c8b89a;
-  box-shadow: 3px 3px 10px rgba(100,80,40,0.18);
-  background: #fff;
-}
-.toc-scan .photo-caption { margin-top: 8px; }
-
 /* ===== お知らせ ===== */
 .notice-section { padding: 22px 26px; margin-bottom: 28px; }
 .notice-section h3 {
@@ -375,6 +363,7 @@ nav ul li a.active {
 .btn-download:hover { background: #6b1010; color: #fff; text-decoration: none; }
 .btn-download::before { content: "↓"; font-size: 0.9em; }
 .btn-download.disabled { background: #bbb; color: #fff; cursor: default; pointer-events: none; }
+.btn-download.preparing::before { content: "●"; font-size: 0.62em; }
 
 /* ===== ブログページ ===== */
 .blog-post { padding: 26px 30px; margin-bottom: 24px; }
@@ -460,6 +449,33 @@ nav ul li a.active {
 .info-dl dt { font-weight: bold; color: #1c1208; margin-top: 14px; }
 .info-dl dd { color: #6a5a40; margin-left: 1em; }
 
+/* 沿革内の歴代表紙 */
+.about-page { max-width: 960px; }
+.history-cover-grid {
+  display: grid;
+  gap: 18px;
+  margin: 20px 0 8px;
+  align-items: start;
+}
+.history-cover-grid-two { grid-template-columns: repeat(2, minmax(140px, 220px)); }
+.history-cover-grid-one { grid-template-columns: minmax(140px, 220px); }
+.history-cover-grid figure { margin: 0; }
+.history-cover-grid img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #fff;
+  border: 1px solid #c8b89a;
+  box-shadow: 3px 3px 9px rgba(100,80,40,0.18);
+}
+.history-cover-grid figcaption {
+  margin-top: 6px;
+  color: #7a6a50;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
 /* ===== お問い合わせページ ===== */
 .contact-form { padding: 30px 34px; }
 .contact-form h2 {
@@ -513,6 +529,17 @@ footer {
 footer a { color: #d4c8a8; }
 .footer-nav { margin-top: 10px; }
 .footer-nav a { margin: 0 8px; }
+.visitor-counter-row {
+  margin-top: 12px;
+  line-height: 1;
+  opacity: 0.68;
+}
+.visitor-counter {
+  display: inline-block;
+  width: 70px;
+  height: 20px;
+  vertical-align: middle;
+}
 
 /* ===== レスポンシブ（スマートフォン対応） ===== */
 @media (max-width: 768px) {
@@ -591,6 +618,16 @@ footer a { color: #d4c8a8; }
   /* ページタイトル */
   .page-title { font-size: 1.2rem; }
 
+  /* 沿革ページ */
+  .history-table,
+  .history-table tbody,
+  .history-table tr,
+  .history-table td { display: block; width: 100%; }
+  .history-table tr { padding: 12px 0; }
+  .history-table td { padding: 3px 0; }
+  .history-table td:first-child { width: auto; }
+  .history-cover-grid-two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
   /* フッター */
   footer { font-size: 0.75rem; padding: 24px 12px; }
   .footer-nav a { margin: 0 5px; }
@@ -601,6 +638,8 @@ footer a { color: #d4c8a8; }
   nav ul li { width: 100%; }
   .bn-grid { grid-template-columns: 1fr; }
   .photo-grid { grid-template-columns: 1fr; }
+  .history-cover-grid-two { grid-template-columns: 1fr; max-width: 220px; }
+  .history-cover-grid-one { max-width: 220px; }
   .blog-post { padding: 18px 16px; }
   .about-card { padding: 20px 16px; }
   .contact-form { padding: 20px 16px; }
