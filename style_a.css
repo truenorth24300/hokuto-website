@@ -344,7 +344,34 @@ nav ul li a.active {
 .bn-card-cover-num { font-size: 0.72rem; color: #c8b89a; margin-top: 5px; }
 .bn-card-body { padding: 12px 14px; }
 .bn-card-no { font-weight: bold; color: #1c1208; font-size: 0.96rem; }
-.bn-card-date { font-size: 0.78rem; color: #9a8a70; margin-bottom: 8px; }
+.bn-card-meta {
+  min-height: 50px;
+  margin-top: 2px;
+}
+.bn-card-date {
+  font-size: 0.78rem;
+  color: #9a8a70;
+  line-height: 1.35;
+}
+.bn-card-price {
+  margin-top: 2px;
+  font-size: 0.78rem;
+  color: #9a8a70;
+  line-height: 1.35;
+}
+.bn-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 8px;
+  min-height: 31px;
+}
+.bn-card-actions .btn-download {
+  margin-top: 0;
+  padding: 6px 8px;
+  font-size: 0.76rem;
+  letter-spacing: 0.04em;
+}
 .bn-toc-link {
   display: inline-block;
   font-size: 0.82rem;
