@@ -345,8 +345,15 @@ nav ul li a.active {
 .bn-card-body { padding: 12px 14px; }
 .bn-card-no { font-weight: bold; color: #1c1208; font-size: 0.96rem; }
 .bn-card-date { font-size: 0.78rem; color: #9a8a70; margin-bottom: 8px; }
-.bn-toc-toggle { font-size: 0.82rem; color: #8b2020; cursor: pointer; }
-.bn-toc-content { margin-top: 8px; font-size: 0.8rem; line-height: 2; color: #6a5a40; }
+.bn-toc-link {
+  display: inline-block;
+  font-size: 0.82rem;
+  color: #8b2020;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(139, 32, 32, 0.45);
+  line-height: 1.5;
+}
+.bn-toc-link:hover { color: #6b1010; border-bottom-color: #6b1010; }
 
 .btn-download {
   display: inline-flex;
@@ -539,9 +546,12 @@ footer a { color: #d4c8a8; }
 }
 .visitor-counter {
   display: inline-block;
-  width: 70px;
-  height: 20px;
+  min-width: 70px;
+  min-height: 20px;
   vertical-align: middle;
+  color: #c8b89a;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
 }
 
 /* ===== レスポンシブ（スマートフォン対応） ===== */
