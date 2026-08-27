@@ -1,4 +1,8 @@
 (() => {
+  const pageName = window.location.pathname.split('/').pop();
+  const isTopPage = !pageName || pageName === 'index_a.html';
+  if (!isTopPage) return;
+
   const targets = document.querySelectorAll('[data-visitor-counter]');
   if (!targets.length) return;
 

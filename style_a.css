@@ -572,17 +572,19 @@ footer {
 footer a { color: #d4c8a8; }
 .footer-nav { margin-top: 10px; }
 .footer-nav a { margin: 0 8px; }
+/* ===== トップページの閲覧数 ===== */
 .visitor-counter-row {
-  margin-top: 12px;
+  margin: 18px 2px 2px;
+  text-align: right;
   line-height: 1;
-  opacity: 0.68;
+  opacity: 0.72;
 }
 .visitor-counter {
   display: inline-block;
   min-width: 70px;
   min-height: 20px;
   vertical-align: middle;
-  color: #c8b89a;
+  color: #6a5a40;
   font-size: 0.72rem;
   letter-spacing: 0.04em;
 }
