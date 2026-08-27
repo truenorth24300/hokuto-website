@@ -10,7 +10,8 @@
     return;
   }
 
-  const trackedUrl = 'https://truenorth24300.github.io/hokuto-website/';
+  // 2026-08-27 に累計をリセットした識別子。公開ページのURL自体は変わりません。
+  const trackedUrl = 'https://truenorth24300.github.io/hokuto-website/index_a.html?counter=reset-20260827';
   const endpoint = 'https://hitscounter.dev/api/hit?url='
     + encodeURIComponent(trackedUrl)
     + '&output=json&tz=Asia%2FTokyo';
